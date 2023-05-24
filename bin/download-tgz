@@ -37,7 +37,7 @@ program
 .action((name, version, command) => commands.packageCommand(name, version, command));
 
 program
-.command('package <name> [version-number]')
+.command('packages <name> [version-number]')
 .description('download tarballs based on a package and number of versions')
 .option('--directory [directory]')
 .option('--registry [registry]')
