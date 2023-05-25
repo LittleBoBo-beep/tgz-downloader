@@ -103,7 +103,6 @@ dist
 
 # vuepress v2.x temp and cache directory
 .temp
-.cache
 
 # Docusaurus cache and generated files
 .docusaurus
@@ -136,7 +135,6 @@ dist
 # IntelliJ project files
 .idea
 *.iml
-out
 gen
 ### macOS template
 # General
