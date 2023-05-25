@@ -4,7 +4,7 @@ const {program} = require('commander');
 const packageJson = require('../package.json');
 const os = require('node:os');
 const commands = require('../lib/commands');
-const cpuCount = os.cpus().length;
+const CPUCore = os.cpus().length; // 获取CPU内核数量
 
 // 执行时间开始时间
 const start = Date.now();
@@ -18,15 +18,15 @@ process.on('beforeExit', () => {
 
 program.version(packageJson.version);
 
-
+// 通过package-lock文件下载对应的包与版本的package-lock文件
 program
 .command('package-lock <uri>')
 .description('download tarballs based on a package-lock.json')
 .option('--directory [directory]')
 .option('--registry [registry]')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, cpuCount)
+.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
 .action((uri, command) => commands.packageLockCommand(uri, command));
-
+// 通过指定包与版本号下载tarballs
 program
 .command('package <name> [version]')
 .description('download tarballs based on a package and a version')
@@ -34,9 +34,9 @@ program
 .option('--registry [registry]')
 .option('--devDependencies')
 .option('--peerDependencies')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, cpuCount)
+.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
 .action((name, version, command) => commands.packageCommand(name, version, command));
-
+// 通过指定包名与版本数量，从倒数的版本开始计数进行下载。
 program
 .command('packages <name> [version-number]')
 .description('download tarballs based on a package and number of versions')
@@ -44,19 +44,19 @@ program
 .option('--registry [registry]')
 .option('--devDependencies')
 .option('--peerDependencies')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, cpuCount)
+.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
 .action((name, version, command) => commands.packagesCommand(name, version, command));
 
-
-// program
-//     .command('package-json <uri>')
-//     .description('download tarballs based on a package.json')
-//     .option('--directory [directory]')
-//     .option('--registry [registry]')
-//     .option('--devDependencies')
-//     .option('--peerDependencies')
-//     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, cpuCount)
-//     .action((uri, command) => commands.packageJsonCommand(uri, command));
+// 通过package.json来生成tarballs包
+program
+    .command('package-json <uri>')
+    .description('download tarballs based on a package.json')
+    .option('--directory [directory]')
+    .option('--registry [registry]')
+    .option('--devDependencies')
+    .option('--peerDependencies')
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((uri, command) => commands.packageJsonCommand(uri, command));
 // 搜索指定的tgz的包
 // program
 //     .command('search <keyword>')
