@@ -13,73 +13,71 @@ process.on('unhandledRejection', error => {
 })
 // 退出程序，计算执行时间
 process.on('beforeExit', () => {
-	console.log(`completed in ${Date.now() - start}ms`.green);
+    console.log(`completed in ${Date.now() - start}ms`.green);
 });
 
 program.version(packageJson.version);
 
 // 通过package-lock文件下载对应的包与版本的package-lock文件
 program
-.command('package-lock <uri>')
-.description('download tarballs based on a package-lock.json')
-.option('--directory [directory]')
-.option('--registry [registry]')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
-.action((uri, command) => commands.packageLockCommand(uri, command));
+    .command('package-lock <uri>')
+    .description('download tarballs based on a package-lock.json')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((uri, command) => commands.packageLockCommand(uri, command));
 // 通过指定包与版本号下载tarballs
 program
-.command('package <name> [version]')
-.description('download tarballs based on a package and a version')
-.option('--directory [directory]')
-.option('--registry [registry]')
-.option('--devDependencies')
-.option('--peerDependencies')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
-.action((name, version, command) => commands.packageCommand(name, version, command));
+    .command('package <name> [version]')
+    .description('download tarballs based on a package and a version')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--devDependencies', 'download devDependencies', false)
+    .option('--peerDependencies', 'download peerDependencies', false)
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((name, version, command) => commands.packageCommand(name, version, command));
 // 通过指定包名与版本数量，从倒数的版本开始计数进行下载。
 program
-.command('packages <name> [version-number]')
-.description('download tarballs based on a package and number of versions')
-.option('--directory [directory]')
-.option('--registry [registry]')
-.option('--devDependencies')
-.option('--peerDependencies')
-.option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
-.action((name, version, command) => commands.packagesCommand(name, version, command));
+    .command('packages <name> [version-number]')
+    .description('download tarballs based on a package and number of versions')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--devDependencies', 'download devDependencies', false)
+    .option('--peerDependencies', 'download peerDependencies', false)
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((name, version, command) => commands.packagesCommand(name, version, command));
 
 // 通过package.json来生成tarballs包
 program
     .command('package-json <uri>')
     .description('download tarballs based on a package.json')
-    .option('--directory [directory]')
-    .option('--registry [registry]')
-    .option('--devDependencies')
-    .option('--peerDependencies')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--devDependencies', 'download devDependencies', false)
+    .option('--peerDependencies', 'download peerDependencies', false)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageJsonCommand(uri, command));
 // 搜索指定的tgz的包
 // program
 //     .command('search <keyword>')
 //     .description('download tarballs based on a npm registry search results')
-//     .option('--directory [directory]')
-//     .option('--registry [registry]')
-//     .option('--devDependencies')
-//     .option('--peerDependencies')
+//     .option('--directory [directory]', 'default path is current path plus tar file', './tar')
+//     	.option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
 //     .action((keyword, command) => commands.searchCommand(keyword, command));
 
 // program
 //     .command('generate <name> [version]')
 //     .description('generates the download links for a giving package and a version')
-//     .option('--outputFile [outputFile]')
-//     .option('--registry [registry]')
-//     .option('--devDependencies')
-//     .option('--peerDependencies')
+//     .option('--outputFile [outputFile]', 'default path is current path plus tar file', './tar')
+//     	.option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+// .option('--devDependencies', 'download devDependencies', false)
+// .option('--peerDependencies', 'download peerDependencies', false)
 //     .action((name, version, command) => commands.generateCommand(name, version, command));
 
 // program
 //     .command('from-generated <uri>')
 //     .description('download tarballs using a generated file created by the generate command')
-//     .option('--directory [directory]')
+//     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
 //     .action((uri, command) => commands.fromGeneratedCommand(uri, command));
 
 program.parse(process.argv);

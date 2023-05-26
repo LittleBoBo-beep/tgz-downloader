@@ -7,7 +7,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "axios": "node bin/download-tgz package axios",
+    "axios": "node bin/download-tgz package axios --devDependencies",
     "packages:axios": "node bin/download-tgz packages axios 5",
     "packages-lock": "node bin/download-tgz package-lock ./mock/package-lock.json",
     "package": "node bin/download-tgz package-json ./mock/package.json"
