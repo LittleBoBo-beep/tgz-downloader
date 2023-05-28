@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+/**
+ * @file 执行命令文件
+ */
 require('colors');
 const {program} = require('commander');
 const packageJson = require('../package.json');
@@ -58,13 +61,19 @@ program
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageJsonCommand(uri, command));
 // 搜索指定的tgz的包
-// program
-//     .command('search <keyword>')
-//     .description('download tarballs based on a npm registry search results')
-//     .option('--directory [directory]', 'default path is current path plus tar file', './tar')
-//     	.option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
-//     .action((keyword, command) => commands.searchCommand(keyword, command));
-
+program
+    .command('search <keyword>')
+    .description('request packageJson file show in Bash window')
+    .option('--directory [directory]', 'default path is current path plus tar file', './tar')
+    	.option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .action((keyword, command) => commands.searchCommand(keyword, command));
+// 搜索指定包的版本数量和版本信息
+program
+    .command('search-version <keyword>')
+    .description('download tarballs based on a npm registry search results')
+    .option('--directory [directory]', 'default path is current path plus tar file', './tar')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .action((keyword, command) => commands.searchCommand(keyword, command));
 // program
 //     .command('generate <name> [version]')
 //     .description('generates the download links for a giving package and a version')
