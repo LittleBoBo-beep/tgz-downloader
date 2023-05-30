@@ -1,11 +1,19 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.3",
+  "description": "download tarball from package-json",
+  "main": "lib/downloader.js",
   "keywords": [],
-  "author": "",
+  "author": "chenhaolin0124",
   "license": "ISC",
+  "bin": {
+    "download-tgz": "bin/download-tgz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LittleBoBo-beep/tgz-downloader"
+  },
+  "files": ["lib", "bin", "log"],
   "dependencies": {
     "axios": "^1.4.0",
     "colors": "^1.4.0",
