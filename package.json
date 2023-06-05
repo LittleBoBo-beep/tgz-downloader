@@ -9,6 +9,10 @@
   "bin": {
     "download-tgz": "bin/download-tgz"
   },
+  "scripts": {
+    "package-puppeteer": "bin/download-tgz package puppeteer",
+    "package-lock": "bin/download-tgz package-lock package/package-lock.json"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/LittleBoBo-beep/tgz-downloader"
