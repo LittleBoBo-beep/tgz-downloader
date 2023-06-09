@@ -10,8 +10,8 @@
     "download-tgz": "bin/download-tgz"
   },
   "scripts": {
-    "package-puppeteer": "download-tgz package puppeteer",
-    "package-lock": "download-tgz package-lock package/package-lock.json"
+    "package-puppeteer": "bin/download-tgz package puppeteer",
+    "package-lock": "bin/download-tgz package-lock package/package-lock.json"
   },
   "repository": {
     "type": "git",
