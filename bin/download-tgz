@@ -12,7 +12,7 @@ const CPUCore = os.cpus().length; // 获取CPU内核数量
 // 执行时间开始时间
 const start = Date.now();
 process.on('unhandledRejection', error => {
-	console.log(`[${'unhandledRejection'.red}]: ${error.message}`, error);
+    console.log(`[${'unhandledRejection'.red}]: ${error.message}`, error);
 })
 // 退出程序，计算执行时间
 process.on('beforeExit', () => {
@@ -61,12 +61,12 @@ program
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageJsonCommand(uri, command));
 // 搜索指定的tgz的包
-// program
-//     .command('search <keyword>')
-//     .description('request packageJson file show in Bash window')
-//     .option('--directory [directory]', 'default path is current path plus tar file', './tar')
-//     	.option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
-//     .action((keyword, command) => commands.searchCommand(keyword, command));
+program
+    .command('search <keyword>')
+    .description('request packageJson file show in Bash window')
+    // .option('--directory [directory]', 'default path is current path plus tar file', './tar')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .action((keyword, command) => commands.searchCommand(keyword, command));
 // 搜索指定包的版本数量和版本信息
 // program
 //     .command('search-version <keyword>')
