@@ -11,13 +11,21 @@
   },
   "scripts": {
     "package-puppeteer": "download-tgz mock/package puppeteer",
-    "package-lock": "download-tgz package-lock mock/package/package-lock.json"
+    "package-lock": "download-tgz package-lock mock/package/package-lock.json",
+    "package-lock-simple": "download-tgz package-lock mock/simple/package-lock.json",
+    "package-lock-lq": "download-tgz package-lock mock/lq/package-lock.json",
+    "test": "cd tarballs && tgz",
+    "test-edit": "cd tarballs && tgz --edit"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/LittleBoBo-beep/tgz-downloader"
   },
-  "files": ["lib", "bin", "log"],
+  "files": [
+    "lib",
+    "bin",
+    "log"
+  ],
   "dependencies": {
     "axios": "^1.4.0",
     "colors": "^1.4.0",
@@ -27,5 +35,8 @@
     "p-limit": "^4.0.0",
     "semver": "^7.5.1",
     "tar": "^6.1.15"
+  },
+  "devDependencies": {
+    "tgz-checker": "^0.1.8"
   }
 }
