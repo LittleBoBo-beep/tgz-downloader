@@ -14,15 +14,15 @@ tgz-package-downloader，可将js项目中使用到的依赖包(dependence， de
 > npm install tgz-package-downloader -g
 
 ## 使用
-> download-tgz package-json path/package.json
+> download-tgz.js package-json path/package.json
 
-> download-tgz package-json https://
+> download-tgz.js package-json https://
 
-> download-tgz package packageName version
+> download-tgz.js package packageName version
 
-> download-tgz package-lock path/package.lock
+> download-tgz.js package-lock path/package.lock
 
-> download-tgz 
+> download-tgz.js 
 ## 功能
 
 下载tgz包到你的电脑，基于一下信息

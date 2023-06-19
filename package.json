@@ -7,7 +7,7 @@
   "author": "chenhaolin0124",
   "license": "ISC",
   "bin": {
-    "download-tgz": "bin/download-tgz"
+    "download-tgz": "bin/download-tgz.js"
   },
   "scripts": {
     "package-puppeteer": "download-tgz mock/package puppeteer",
