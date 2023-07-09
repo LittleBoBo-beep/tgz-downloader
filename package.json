@@ -10,10 +10,14 @@
     "download-tgz": "bin/download-tgz.js"
   },
   "scripts": {
-    "package-puppeteer": "download-tgz mock/package puppeteer",
+    "package-puppeteer": "download-tgz package puppeteer",
+    "packages-puppeteer": "download-tgz packages puppeteer 5",
     "package-lock": "download-tgz package-lock mock/package/package-lock.json",
     "package-lock-simple": "download-tgz package-lock mock/simple/package-lock.json",
     "package-lock-lq": "download-tgz package-lock mock/lq/package-lock.json",
+    "package-json-lq": "download-tgz package-json mock/axios/package.json --devDependencies",
+    "package-json-chatgpt-web": "download-tgz package-lock mock/chatgpt-web/package-lock.json",
+    "package-json-chatgpt-server": "download-tgz package-lock mock/chatgpt-server/package-lock.json",
     "test": "cd tarballs && tgz",
     "test-edit": "cd tarballs && tgz --edit"
   },
