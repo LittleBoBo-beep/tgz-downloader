@@ -3,7 +3,9 @@
   "version": "1.0.3",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
-  "keywords": [],
+  "keywords": [
+    "tgz", "tgz-package", "tgz-package-downloader"
+  ],
   "author": "chenhaolin0124",
   "license": "ISC",
   "bin": {
