@@ -36,7 +36,7 @@ program
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
     .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
     .option('--devDependencies', 'download devDependencies', false)
-    .option('--peerDependencies', 'download peerDependencies', true)
+    .option('--peerDependencies', 'download peerDependencies', false)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((name, version, command) => commands.packageCommand(name, version, command));
 // 通过指定包名与版本数量，从倒数的版本开始计数进行下载。
