@@ -1,23 +1,11 @@
 #!/usr/bin/env node
-/**
- * @file 执行命令文件
- */
-require('colors');
-const {program} = require('commander');
-const packageJson = require('../package.json');
-const os = require('node:os');
-const commands = require('../lib/commands');
+const {program} = require('commander'); // 解析指令库
+const packageJson = require('../package.json'); // 获取packageJson文件
+const os = require('node:os'); // 操作系统
+const commands = require('../lib/commands'); // 执行输入指令
 const CPUCore = os.cpus().length; // 获取CPU内核数量
-
-// 执行时间开始时间
-const start = Date.now();
-process.on('unhandledRejection', error => {
-    console.log(`[${'unhandledRejection'.red}]: ${error.message}`, error);
-})
-// 退出程序，计算执行时间
-process.on('beforeExit', () => {
-    console.log(`completed in ${Date.now() - start}ms`.green);
-});
+require('colors'); // 引入字体颜色
+require('../lib/executionTime') // 计算执行时间
 
 program.version(packageJson.version);
 

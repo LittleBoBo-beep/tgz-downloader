@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -34,16 +34,14 @@
     "log"
   ],
   "dependencies": {
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "colors": "^1.4.0",
     "commander": "^10.0.1",
     "log4js": "^6.9.1",
     "mkdirp": "^0.5.1",
     "p-limit": "^4.0.0",
-    "semver": "^7.5.1",
-    "tar": "^6.1.15"
-  },
-  "devDependencies": {
+    "semver": "^7.5.2",
+    "tar": "^6.1.15",
     "tgz-checker": "^0.1.8"
   }
 }
