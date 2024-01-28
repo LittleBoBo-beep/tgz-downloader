@@ -4,6 +4,12 @@
 # IntelliJ project files
 .idea
 *.iml
-out
-gen
 .gitignore
+/tarballs
+*.log
+.git
+log
+mock
+spec
+test
+node_modules
