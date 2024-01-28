@@ -14,8 +14,7 @@
   "scripts": {
     "package-puppeteer": "download-tgz package puppeteer",
     "packages-puppeteer": "download-tgz packages puppeteer 5",
-    "package-lock": "download-tgz package-lock mock/package/package-lock.json",
-    "package-lock-simple": "download-tgz package-lock mock/simple/package-lock.json",
+    "package-lock": "download-tgz package-lock mock/sqlite/package-lock.json --registry https://registry.npmmirror.com",
     "package-lock-lq": "download-tgz package-lock mock/lq/package-lock.json",
     "package-@commitlint/cli": "download-tgz package @commitlint/cli",
     "package-json-lq": "download-tgz package-json mock/axios/package.json --devDependencies",

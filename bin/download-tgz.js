@@ -4,6 +4,8 @@ const packageJson = require('../package.json'); // 获取packageJson文件
 const os = require('node:os'); // 操作系统
 const commands = require('../lib/commands'); // 执行输入指令
 const CPUCore = os.cpus().length; // 获取CPU内核数量
+const { getRegistry } = require('../lib/config');
+const defaultRegistry = getRegistry();
 require('colors'); // 引入字体颜色
 require('../lib/executionTime') // 计算执行时间
 
@@ -14,7 +16,7 @@ program
     .command('package-lock <uri>')
     .description('download tarballs based on a package-lock.json')
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
-    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--registry [registry]', 'Source address of the image to be downloaded, default is ' + defaultRegistry, defaultRegistry)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageLockCommand(uri, command));
 // 通过指定包与版本号下载tarballs
