@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -9,12 +9,13 @@
   "author": "chenhaolin0124",
   "license": "ISC",
   "bin": {
-    "download-tgz": "bin/download-tgz.js"
+    "download-tgz": "bin/download-tgz.js",
+    "dt": "bin/download-tgz.js"
   },
   "scripts": {
     "package-puppeteer": "download-tgz package puppeteer",
     "packages-puppeteer": "download-tgz packages puppeteer 5",
-    "package-lock": "download-tgz package-lock mock/sqlite/package-lock.json --registry https://registry.npmmirror.com",
+    "package-lock": "download-tgz package-lock mock/TSimOP/OneSim/package-lock.json --registry https://registry.npmmirror.com",
     "package-lock-lq": "download-tgz package-lock mock/lq/package-lock.json",
     "package-@commitlint/cli": "download-tgz package @commitlint/cli",
     "package-json-lq": "download-tgz package-json mock/axios/package.json --devDependencies",
