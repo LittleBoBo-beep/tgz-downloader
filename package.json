@@ -20,7 +20,7 @@
     "package-@commitlint/cli": "download-tgz package @commitlint/cli",
     "package-json-lq": "download-tgz package-json mock/axios/package.json --devDependencies",
     "package-json-chatgpt-web": "download-tgz package-lock mock/chatgpt-web/package-lock.json",
-    "package-json-chatgpt-server": "download-tgz package-lock mock/chatgpt-server/package-lock.json",
+    "package-json-chatgpt-server": "download-tgz package-json mock/axios/package.json",
     "test": "cd tarballs && tgz",
     "test-edit": "cd tarballs && tgz --edit"
   },
@@ -41,7 +41,7 @@
     "mkdirp": "^0.5.1",
     "p-limit": "^4.0.0",
     "semver": "^7.5.2",
-    "tar": "^6.1.15",
+    "tar": "6.2.1",
     "tgz-checker": "^0.1.8"
   }
 }
