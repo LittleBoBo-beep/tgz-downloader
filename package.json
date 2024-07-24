@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -30,8 +30,7 @@
   },
   "files": [
     "lib",
-    "bin",
-    "log"
+    "bin"
   ],
   "dependencies": {
     "axios": "^1.6.0",
