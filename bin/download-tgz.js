@@ -24,7 +24,7 @@ program
     .command('package-json <uri>')
     .description('download tarballs based on a package.json')
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
-    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .option('--devDependencies', 'download devDependencies', false)
     .option('--peerDependencies', 'download peerDependencies', true)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
@@ -34,7 +34,7 @@ program
     .command('package <name> [version]')
     .description('download tarballs based on a package and a version')
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
-    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .option('--devDependencies', 'download devDependencies', false)
     .option('--peerDependencies', 'download peerDependencies', false)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
@@ -44,7 +44,7 @@ program
     .command('packages <name> [version-number]')
     .description('download tarballs based on a package and number of versions')
     .option('-DIR, --directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
-    .option('-R, --registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('-R, --registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .option('-DEV, --devDependencies', 'download devDependencies', false)
     .option('-PEER, --peerDependencies', 'download peerDependencies', true)
     .option('-C, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
@@ -56,7 +56,7 @@ program
     .command('search <keyword>')
     .description('request packageJson file show in Bash window')
     // .option('--directory [directory]', 'default path is current path plus tar file', './tar')
-    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmjs.org')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .action((keyword, command) => commands.searchCommand(keyword, command));
 
 program.parse(process.argv);
