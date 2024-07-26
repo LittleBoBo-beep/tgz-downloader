@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -13,14 +13,8 @@
     "dt": "bin/download-tgz.js"
   },
   "scripts": {
-    "package-puppeteer": "download-tgz package puppeteer",
-    "packages-puppeteer": "download-tgz packages puppeteer 5",
-    "package-lock": "download-tgz package-lock mock/TSimOP/OneSim/package-lock.json --registry https://registry.npmmirror.com",
-    "package-lock-lq": "download-tgz package-lock mock/lq/package-lock.json",
-    "package-@commitlint/cli": "download-tgz package @commitlint/cli",
-    "package-json-lq": "download-tgz package-json mock/axios/package.json --devDependencies",
-    "package-json-chatgpt-web": "download-tgz package-lock mock/chatgpt-web/package-lock.json",
-    "package-json-chatgpt-server": "download-tgz package-json mock/axios/package.json",
+    "search": "download-tgz search axios",
+    "package": "download-tgz packages axios 10",
     "test": "cd tarballs && tgz",
     "test-edit": "cd tarballs && tgz --edit"
   },
@@ -30,8 +24,7 @@
   },
   "files": [
     "lib",
-    "bin",
-    "log"
+    "bin"
   ],
   "dependencies": {
     "axios": "^1.6.0",
