@@ -59,4 +59,10 @@ program
     .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .action((keyword, command) => commands.searchCommand(keyword, command));
 
+program
+    .command('test <uri>')
+    .description('检测下载出来的tgz是否有缺包的情况')
+    .action((uri) => commands.testTarballs(uri));
+
+
 program.parse(process.argv);

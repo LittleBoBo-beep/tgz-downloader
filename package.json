@@ -4,7 +4,9 @@
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
-    "tgz", "tgz-package", "tgz-package-downloader"
+    "tgz",
+    "tgz-package",
+    "tgz-package-downloader"
   ],
   "author": "chenhaolin0124",
   "license": "ISC",
@@ -14,10 +16,12 @@
   },
   "scripts": {
     "search": "download-tgz search axios",
-    "packageLock": "./bin/download-tgz.js package-lock ./mock/optimize/package-lock.json",
-    "package": "./bin/download-tgz.js package-json ./mock/framework/package.json",
+    "packageLock": "node ./bin/download-tgz.js package-lock ./mock/simple/package-lock.json",
+    "package": "node ./bin/download-tgz.js package-json ./mock/framework/package.json",
     "test": "cd tarballs && tgz",
-    "test-edit": "cd tarballs && tgz --edit"
+    "test-edit": "cd tarballs && tgz --edit",
+    "version": "node ./bin/download-tgz.js --version",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git",
@@ -31,9 +35,11 @@
     "axios": "^1.6.0",
     "colors": "^1.4.0",
     "commander": "^10.0.1",
+    "glob": "^11.0.0",
     "log4js": "^6.9.1",
     "mkdirp": "^0.5.1",
     "p-limit": "^4.0.0",
+    "patch-package": "^8.0.0",
     "semver": "^7.5.2",
     "tar": "6.2.1",
     "tgz-checker": "^0.1.8"
