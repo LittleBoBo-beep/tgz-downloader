@@ -54,13 +54,8 @@ download-tgz packages packageName versionNumber
 4. **内网开发测试（推荐）**：在将包导入内网开发环境前，建议使用 [Verdaccio](https://verdaccio.org/) 进行测试，防止版本不兼容的问题。注意某些包可能包含二进制文件，可能会导致下载失败。
 5. **保留锁文件**：如果是根据 `package-lock.json` 或 `package.json` 文件进行下载，请保留生成的 `package-lock.json` 文件以备后续使用。
 
-## 功能
-
-`tgz-package-downloader` 可以下载 tgz 包到本地，基于以下信息：
-
-1. 通过包名和版本下载：`download-tgz package packageName version`
-2. 通过本地或远程的 `package.json` 文件下载：`download-tgz package-json (path/to/package.json 或 https://example.com/path/package.json)`
-3. 通过本地或远程的 `package-lock.json` 文件下载：`download-tgz package-lock (path/to/package-lock.json 或 https://example.com/path/package.json)`
+## keyword
+[tgz-package-downloader](https://www.npmjs.com/search?q=tgz-package-downloader)
 
 ## 参考
 
