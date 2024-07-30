@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "search": "download-tgz search axios",
-    "package": "download-tgz packages axios 10",
+    "packageLock": "./bin/download-tgz.js package-lock ./mock/optimize/package-lock.json",
+    "package": "./bin/download-tgz.js package-json ./mock/framework/package.json",
     "test": "cd tarballs && tgz",
     "test-edit": "cd tarballs && tgz --edit"
   },
