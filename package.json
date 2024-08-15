@@ -15,13 +15,8 @@
     "dt": "bin/download-tgz.js"
   },
   "scripts": {
-    "search": "download-tgz search axios",
-    "packageLock": "node ./bin/download-tgz.js package-lock ./mock/simple/package-lock.json",
-    "package": "node ./bin/download-tgz.js package-json ./mock/framework/package.json",
-    "package-spritejs": "node ./bin/download-tgz.js package-json ./mock/spritejs/package.json",
     "test": "cd tarballs && tgz",
-    "test-edit": "cd tarballs && tgz --edit",
-    "version": "node ./bin/download-tgz.js --version"
+    "test-edit": "cd tarballs && tgz --edit"
   },
   "repository": {
     "type": "git",
