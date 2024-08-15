@@ -1,1 +1,1 @@
-const tgzChecker = require('tgz-checker');
+require('tgz-checker')
