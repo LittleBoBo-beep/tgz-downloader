@@ -1,6 +1,6 @@
 {
   "name": "tgz-package-downloader",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "download tarball from package-json",
   "main": "lib/downloader.js",
   "keywords": [
@@ -18,10 +18,10 @@
     "search": "download-tgz search axios",
     "packageLock": "node ./bin/download-tgz.js package-lock ./mock/simple/package-lock.json",
     "package": "node ./bin/download-tgz.js package-json ./mock/framework/package.json",
+    "package-spritejs": "node ./bin/download-tgz.js package-json ./mock/spritejs/package.json",
     "test": "cd tarballs && tgz",
     "test-edit": "cd tarballs && tgz --edit",
-    "version": "node ./bin/download-tgz.js --version",
-    "postinstall": "patch-package"
+    "version": "node ./bin/download-tgz.js --version"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,6 @@
     "log4js": "^6.9.1",
     "mkdirp": "^0.5.1",
     "p-limit": "^4.0.0",
-    "patch-package": "^8.0.0",
     "semver": "^7.5.2",
     "tar": "6.2.1",
     "tgz-checker": "^0.1.8"

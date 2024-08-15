@@ -11,16 +11,26 @@ require('../lib/executionTime') // 计算执行时间
 
 program.version(packageJson.version);
 
-// 通过package-lock文件下载对应的包与版本的package-lock文件
-program
+{
+  // 通过package-lock文件下载对应的包与版本的package-lock文件
+  program
     .command('package-lock <uri>')
     .description('download tarballs based on a package-lock.json')
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
     .option('--registry [registry]', 'Source address of the image to be downloaded, default is ' + defaultRegistry, defaultRegistry)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((uri, command) => commands.packageLockCommand(uri, command));// 通过package-lock文件下载对应的包与版本的package-lock文件
+  program
+    .command('lock <uri>')
+    .description('download tarballs based on a package-lock.json')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded, default is ' + defaultRegistry, defaultRegistry)
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageLockCommand(uri, command));
-// 通过package.json来生成tarballs包
-program
+}
+{
+  // 通过package.json来生成tarballs包
+  program
     .command('package-json <uri>')
     .description('download tarballs based on a package.json')
     .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
@@ -29,6 +39,17 @@ program
     .option('--peerDependencies', 'download peerDependencies', true)
     .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
     .action((uri, command) => commands.packageJsonCommand(uri, command));
+  // 通过package.json来生成tarballs包
+  program
+    .command('json <uri>')
+    .description('download tarballs based on a package.json')
+    .option('--directory [directory]', 'Download path, the default path is the current path with tarballs', './tarballs')
+    .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
+    .option('--devDependencies', 'download devDependencies', false)
+    .option('--peerDependencies', 'download peerDependencies', true)
+    .option('-c, --concurrency <concurrency>', 'number of concurrent download', commands.parseConcurrency, CPUCore)
+    .action((uri, command) => commands.packageJsonCommand(uri, command));
+}
 // 通过指定包与版本号下载tarballs
 program
     .command('package <name> [version]')
@@ -59,10 +80,10 @@ program
     .option('--registry [registry]', 'Source address of the image to be downloaded', 'https://registry.npmmirror.com')
     .action((keyword, command) => commands.searchCommand(keyword, command));
 
-program
-    .command('test <uri>')
-    .description('检测下载出来的tgz是否有缺包的情况')
-    .action((uri) => commands.testTarballs(uri));
+// program
+//     .command('test <uri>')
+//     .description('检测下载出来的tgz是否有缺包的情况')
+//     .action((uri) => commands.testTarballs(uri));
 
 
 program.parse(process.argv);

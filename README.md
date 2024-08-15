@@ -11,11 +11,16 @@ npm install tgz-package-downloader -g
 ```
 
 ## 使用方法
-
+### 命令简写
+可使用全拼的命令`download-tgz` 或简写 `dt`来执行此脚本
 ### 通过本地 `package.json` 文件下载包
 
 ```bash
 download-tgz package-json path/to/package.json
+```
+或者
+```bash
+dt json path/to/package.json
 ```
 
 ### 通过远程 `package.json` 文件下载包
@@ -37,7 +42,10 @@ download-tgz package packageName version
 ```bash
 download-tgz package-lock path/to/package-lock.json
 ```
-
+或者
+```bash
+dt lock path/to/package-lock.json
+```
 ### 通过 `packages` 命令批量下载 npm 包
 
 可以下载指定数量的不同版本：
@@ -53,6 +61,7 @@ download-tgz packages packageName versionNumber
 3. **检查错误日志**：下载完成后请参照生成的 `error.log` 文件，查看是否有未下载成功的文件，必要时重新执行命令下载。
 4. **内网开发测试（推荐）**：在将包导入内网开发环境前，建议使用 [Verdaccio](https://verdaccio.org/) 进行测试，防止版本不兼容的问题。注意某些包可能包含二进制文件，可能会导致下载失败。
 5. **保留锁文件**：如果是根据 `package-lock.json` 或 `package.json` 文件进行下载，请保留生成的 `package-lock.json` 文件以备后续使用。
+6. **其他注意事项**：在windows中如果遇到权限问题，请使用`git bash`等终端执行脚本
 
 ## keyword
 [tgz-package-downloader](https://www.npmjs.com/search?q=tgz-package-downloader)
