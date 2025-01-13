@@ -27,7 +27,7 @@
     "bin"
   ],
   "dependencies": {
-    "axios": "^1.6.0",
+    "axios": "^1.7.4",
     "colors": "^1.4.0",
     "commander": "^10.0.1",
     "glob": "^11.0.0",
